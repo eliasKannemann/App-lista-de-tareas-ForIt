@@ -33,19 +33,15 @@ export const updateTask = (req, res) => {
   const { id } = req.params;
   const { name, text, completed } = req.body;
 
-  if (!name || name.trim() === "") {
-    return res.status(400).json({ error: "El nombre de la tarea es obligatorio" });
+  if (!name || !text) {
+    return res.status(400).json({ error: "El nombre y la descripción son obligatorios." });
   }
-  if (!text || text.trim() === "") {
-    return res.status(400).json({ error: "El texto de la tarea es obligatorio" });
-  }
-  if (typeof completed !== "boolean") {
-    return res.status(400).json({ error: "El estado de la tarea debe ser booleano" });
-  }
+
+  const completedValue = completed === undefined ? null : completed ? 1 : 0;
 
   db.query(
     "UPDATE tareas SET name = ?, text = ?, completed = ? WHERE id = ?",
-    [name, text, completed, id],
+    [name, text, completedValue, id],
     (err, result) => {
       if (err) {
         return res.status(500).json({ error: "Error al actualizar la tarea" });
@@ -53,7 +49,7 @@ export const updateTask = (req, res) => {
       if (result.affectedRows === 0) {
         return res.status(404).json({ error: "Tarea no encontrada" });
       }
-      res.json({ id, name, text, completed });
+      res.json({ id, name, text, completed: completedValue });
     }
   );
 };

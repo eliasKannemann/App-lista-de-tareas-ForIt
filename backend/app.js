@@ -8,7 +8,10 @@ const app = express();
 const PORT = config.port;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: "http://localhost:5173"
+  }));
+  
 app.use(express.json());
 
 // Routes
