@@ -13,7 +13,7 @@ const TaskList = () => {
         if (taskName && taskText) {
             axios.post("http://localhost:3000/api/tasks", { name: taskName, text: taskText })
                 .then(response => {
-                    setTasks([...tasks, response.data]); // Actualiza el estado con la nueva tarea
+                    setTasks([...tasks, response.data]); 
                     setTaskName("");
                     setTaskText("");
                 })
@@ -62,7 +62,7 @@ const TaskList = () => {
     };
 
     const toggleComplete = (id, name, text, currentCompleted) => {
-        const newCompleted = currentCompleted ? false : true; // 🔹 Convertir `0/1` en `true/false`
+        const newCompleted = currentCompleted ? false : true; 
 
         axios.put(`http://localhost:3000/api/tasks/${id}`, {
             name,
