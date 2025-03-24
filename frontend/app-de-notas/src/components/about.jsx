@@ -8,18 +8,21 @@ const About = () => {
                 <div className="col-md-8 offset-md-2">
                     <div className="card">
                         <div className="card-header">
-                            <h3>About Us</h3>
+                            <h3>App ForIt</h3>
                         </div>
                         <div className="card-body">
                             <p className="card-text">
-                                Welcome to our task management app! Our mission is to help you stay organized and productive.
+                                Bienvenidos a la App de tareas
                             </p>
                             <p className="card-text">
-                                This app was created as part of the ForIT 2025 Academy Challenge. We hope you find it useful and easy to use.
+                                Esta aplicación le permite agregar, editar y eliminar tareas.
                             </p>
                             <p className="card-text">
-                                If you have any questions or feedback, please feel free to reach out to us.
+                               Esta aplicación fue desarrollada para el challenge de ForIt
                             </p>
+                            <p className="card-text">
+                                Desarrollada por: <strong>Elias Kannemann</strong>       
+                            </p> 
                         </div>
                     </div>
                 </div>

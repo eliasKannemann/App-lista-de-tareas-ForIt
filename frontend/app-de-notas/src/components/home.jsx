@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Form, Container, Row, Col, Card } from 'react-bootstrap';
 import Notas from './notas';
+import Swal from 'sweetalert2';
 
 const Home = () => {
     const [tasks, setTasks] = useState([]);
@@ -15,6 +16,7 @@ const Home = () => {
                     setTasks([...tasks, response.data]); // Actualiza el estado con la nueva tarea
                     setTaskName("");
                     setTaskText("");
+                    Swal.fire("Tarea creada", "La tarea se ha creado correctamente", "success");
                 })
                 .catch(error => console.error("Error al agregar tarea:", error));
         }
