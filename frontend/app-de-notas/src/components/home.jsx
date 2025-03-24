@@ -31,13 +31,13 @@ const Home = () => {
 
 
     return (
-        <Container>
+        <Container className='mt-5 mb-15'>
             <Card>
                 <Row className="my-6">
                     <Col>
-                        <h1>APP TAREAS</h1>
+                    <h1>Crea una tarea!</h1>
                         <Form>
-                            <Form.Group className="form-group" controlId="formTaskName">
+                            <Form.Group className="form-group mb-3" controlId="formTaskName">
                                 <Form.Label className="col">Nombre</Form.Label>
                                 <Form.Control
                                     type="text"
@@ -47,7 +47,7 @@ const Home = () => {
                                 />
                             </Form.Group>
                             <Form.Group className="form-group" controlId="formTaskText">
-                                <Form.Label>descripción</Form.Label>
+                                <Form.Label>Descripción</Form.Label>
                                 <Form.Control
                                     type="text"
                                     placeholder="Ingrese la descripción de la tarea"
@@ -57,17 +57,17 @@ const Home = () => {
                             </Form.Group>
 
                             <Button className="btn btn-primary btn-lg active form-group" variant="primary" onClick={addTask}>
-                                Crear
+                                Crear Nota
                             </Button>
                         </Form>
                     </Col>
                 </Row>
             </Card>
-         <Notas />
+            <Notas />
         </Container>
-       
 
-      
+
+
     );
 };
 
