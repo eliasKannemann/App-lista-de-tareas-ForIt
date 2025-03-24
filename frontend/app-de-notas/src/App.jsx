@@ -1,22 +1,25 @@
-import { useState } from 'react'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './components/header'
 import './App.css'
 import Home from './components/home';
-import { Container } from 'react-bootstrap';
 import About from './components/about';
+import { Routes, Route } from 'react-router-dom';
+import NotFound from './components/notFound';
+import Notas from './components/notas';
+import TaskList from './components/taskList';
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
   return (
     <>
       <Header />
-      <Container>
-        <Home />
-      </ Container>
-      <About />
-
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/notas" element={<TaskList />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   )
 }
